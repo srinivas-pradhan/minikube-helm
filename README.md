@@ -5,7 +5,8 @@
 https://www.docker.com/get-started/
 ```
 ### Install MiniKube (Setup Instructions for Apple Silicon)
-(Instructions From https://medium.com/@seohee.sophie.kwon/how-to-run-a-minikube-on-apple-silicon-m1-8373c248d669 )
+Instructions From Article : 
+https://medium.com/@seohee.sophie.kwon/how-to-run-a-minikube-on-apple-silicon-m1-8373c248d669 )
 
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64
