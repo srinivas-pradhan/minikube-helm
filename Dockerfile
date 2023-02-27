@@ -2,9 +2,9 @@ FROM python:3
 
 WORKDIR /app
 
-COPY projects/Ntwrk_Calc_API/app .
-COPY projects/Ntwrk_Calc_API/requirements.txt requirements.txt
+COPY projects/dummy-app .
+COPY projects/dummy-app/requirements.txt requirements.txt
 
 RUN pip3 install --no-cache-dir --upgrade -r requirements.txt
 
-CMD [ "uvicorn", "app.main:app"]
+CMD [ "python3", "app.py"]
