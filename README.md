@@ -29,7 +29,6 @@ host: Running
 kubelet: Running
 apiserver: Running
 kubeconfig: Configured
-
 ```
 
 ### Docker Setup - Dummy App
