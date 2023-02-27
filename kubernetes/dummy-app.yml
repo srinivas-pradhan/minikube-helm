@@ -41,5 +41,49 @@ spec:
       containers:
       - name: dummy-app
         image: srin64/dummy-app:latest
+        env:
+          - name: MY_CONF_VAR
+            valueFrom:
+              configMapKeyRef:
+                name: dummy-app
+                key: MY_CONF_VAR
+          - name: MY_SECRET_VAR 
+            valueFrom: 
+              secretKeyRef: 
+                name: dummy-app 
+                key: MY_SECRET_VAR 
         ports:
         - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dummy-app
+  namespace: dummy-app
+spec:
+  selector:
+    app.kubernetes.io/name: dummy-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 5000
+---
+apiVersion: networking.k8s.io/v1   
+kind: Ingress
+metadata:
+  name: dummy-app
+  namespace: dummy-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: dummy-app
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: dummy-app
+                port:
+                  number: 8080
