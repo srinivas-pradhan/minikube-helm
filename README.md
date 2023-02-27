@@ -36,6 +36,8 @@ kubeconfig: Configured
 #### Build image
 ```
 docker build -t dummy-app .
+docker tag dummy-app:latest srin64/dummy-app:latest
+docker push srin64/dummy-app:latest
 ```
 
 #### Export env vars
@@ -43,7 +45,7 @@ docker build -t dummy-app .
 export MY_CONF_VAR=valueme
 export MY_SECRET_VAR=secretme
 ```
-#### Run image
+#### Run image (Dev Testing)
 ```
-docker run -d dummy-app
+docker run -d srin64/dummy-app:latest
 ```
