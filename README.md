@@ -39,6 +39,11 @@ kubeconfig: Configured
 docker build -t dummy-app .
 ```
 
+#### Export env vars
+```
+export MY_CONF_VAR=valueme
+export MY_SECRET_VAR=secretme
+```
 #### Run image
 ```
 docker run -d dummy-app
