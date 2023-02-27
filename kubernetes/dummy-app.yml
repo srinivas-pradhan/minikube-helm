@@ -4,6 +4,23 @@ kind: Namespace
 metadata:
   name: dummy-app
 ---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dummy-app
+  namespace: dummy-app
+data:
+  MY_CONF_VAR: valueme
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: dummy-app
+  namespace: dummy-app
+type: Opaque
+data:
+  MY_SECRET_VAR: c2VjcmV0bWUK
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
