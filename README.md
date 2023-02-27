@@ -1,5 +1,6 @@
-# MiniKube Setup
+# MiniKube Helm
 
+## Docker / MiniKube Setup
 ### Install Docker Desktop
 ```
 https://www.docker.com/get-started/
@@ -13,7 +14,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin
 sudo install minikube-darwin-arm64 /usr/local/bin/minikube
 ```
 
-#### Start MiniKube
+### Start MiniKube
 ```
 minikube start --driver=docker --alsologtostderr
 ```
@@ -29,4 +30,16 @@ kubelet: Running
 apiserver: Running
 kubeconfig: Configured
 
+```
+
+### Docker Setup - Dummy App
+
+#### Build image
+```
+docker build -t dummy-app .
+```
+
+#### Run image
+```
+docker run -d dummy-app
 ```
